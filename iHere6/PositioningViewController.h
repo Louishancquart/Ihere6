@@ -28,6 +28,7 @@
     //IBOutlet UILabel *beaconsFound;
     IBOutlet UILabel *selfView;
     IBOutlet UIView *beaconGrid;
+    IBOutlet UILabel *beaconsFound;
 }
 
 

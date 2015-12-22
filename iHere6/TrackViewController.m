@@ -110,9 +110,11 @@
     } else if (beacon.proximity == CLProximityFar) {
         self.distance3Label.text = @"Far";
     }
-    self.rssi1Label.text = [NSString stringWithFormat:@"%li", (long)beacon.rssi];
-    self.rssi2Label.text = [NSString stringWithFormat:@"%li", (long)beacon.rssi];
-    self.rssi3Label.text = [NSString stringWithFormat:@"%li", (long)beacon.rssi];
+    self.rssi1Label.text = [NSString stringWithFormat:@"rssi1 : %li", (long)beacon.rssi];
+    self.rssi2Label.text = [NSString stringWithFormat:@"rssi2 : %li", (long)beacon.rssi];
+    self.rssi3Label.text = [NSString stringWithFormat:@"rssi3 : %li", (long)beacon.rssi];
+    
+
 }
 
 

@@ -24,8 +24,8 @@
     [locationManager setDelegate:self];
     
     // Estimote beacon UUID
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];
-    beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"Trilateration"];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"B9407F30-F5F8-466E-AFF9-25556B57FE6D"];     // why this one and not beacons uuids?
+    beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"Trilateration"]; // why this one and not Beacons?
     
     // start ranging ID
     [locationManager startRangingBeaconsInRegion:beaconRegion];
@@ -95,8 +95,8 @@
     foundBeacons = [beacons copy];
     
     // put them in the tableView
-    //[beaconsFound setText:[NSString stringWithFormat:@"Found beacons (%lu)", (unsigned long)[foundBeacons //count]]];
-  //  [beaconsTableView reloadData];
+    [beaconsFound setText:[NSString stringWithFormat:@"Found beacons (%lu)", (unsigned long)[foundBeacons count]]];  // why this was commented ?
+    [beaconsTableView reloadData];                                                                                     // why this was commented ?  I fixed this
     
     // perform trilateration
     [beaconTrilaterator trilaterateWithBeacons:foundBeacons done:^(NSString *error, NSArray *coordinates) {
