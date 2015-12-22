@@ -37,7 +37,9 @@
     [selfView.layer setCornerRadius:10];
     
     [self plotBeaconsFromPlistToGrid];
-}
+    
+    
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -133,7 +135,58 @@
         [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     }
     
+    
     [cell.textLabel setText:[NSString stringWithFormat:@"%d/%d rssi:%ld dist: %.1fm", [[currentBeacon major] intValue], [[currentBeacon minor] intValue],(long)[currentBeacon rssi], [currentBeacon accuracy]]];
+    
+    
+    //write to a file
+    
+    //check if  Datafile is exist
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //Get documents directory
+    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [directoryPaths objectAtIndex:0];
+    if ([fileManager fileExistsAtPath:@"./data.json"]==YES) {
+        NSLog(@"File data.json exists");
+    }
+    
+    
+    //check if the file is writable
+    if ([fileManager isWritableFileAtPath:@"FilePath"]) {
+        NSLog(@"isWritable");
+    }else{
+        NSLog(@"data file is NOT  Writable");
+
+    }
+    
+    NSError* error = nil;
+    NSString *data;
+    data = [NSString stringWithFormat:@"%d/%d rssi:%ld dist: %.1fm", [[currentBeacon major] intValue], [[currentBeacon minor] intValue],(long)[currentBeacon rssi], [currentBeacon accuracy]];
+    
+    NSString *contents = [NSString stringWithContentsOfFile:@"./data.json"
+                                        encoding:NSUTF8StringEncoding
+                                                      error:&error];
+    
+    contents = [contents stringByAppendingString:data];
+    
+    [contents writeToFile:@"./data.json"
+            atomically:YES
+            encoding:NSUnicodeStringEncoding
+            error:&error];
+    
+    
+    // JSON not working
+    
+//    NSArray* jsonResponse = [NSJSONSerialization JSONObjectWithData:theResponse
+//                                                            options:kNilOptions
+//                                                              error:&error];
+//    //create json data
+//    [NSString initData  setText:[NSString stringWithFormat:@" {\"currentBeacon major\" : \"%d\"/%d rssi:%ld dist: %.1fm", [[currentBeacon major] intValue], [[currentBeacon minor] intValue],(long)[currentBeacon rssi], [currentBeacon accuracy]]];
+//    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:userDetails
+//                                                       options:kNilOptions
+//                                                         error:&error];
+//    [jsonData setObject:@"firstobject" forKey:@"aKey"];
     
     return cell;
 }

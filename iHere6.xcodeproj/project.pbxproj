@@ -19,6 +19,7 @@
 		1982A5671C1F8C4E0042AE7A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1982A5661C1F8C4E0042AE7A /* CoreBluetooth.framework */; };
 		19EE8B8A1C28305A002CCA05 /* beaconCoordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19EE8B891C28305A002CCA05 /* beaconCoordinates.plist */; };
 		19EE8B901C285A72002CCA05 /* PositioningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EE8B8F1C285A72002CCA05 /* PositioningViewController.m */; };
+		F89D83071C28E945000A3E46 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F89D83061C28E945000A3E46 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		19EE8B891C28305A002CCA05 /* beaconCoordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = beaconCoordinates.plist; sourceTree = "<group>"; };
 		19EE8B8E1C285A72002CCA05 /* PositioningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositioningViewController.h; sourceTree = "<group>"; };
 		19EE8B8F1C285A72002CCA05 /* PositioningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningViewController.m; sourceTree = "<group>"; };
+		F89D83061C28E945000A3E46 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				1982A5601C1F8C020042AE7A /* Info.plist */,
 				19EE8B881C283012002CCA05 /* Trilateration */,
 				1982A54F1C1F8C020042AE7A /* Supporting Files */,
+				F89D83061C28E945000A3E46 /* data.json */,
 			);
 			path = iHere6;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				19EE8B8A1C28305A002CCA05 /* beaconCoordinates.plist in Resources */,
 				1982A55F1C1F8C020042AE7A /* LaunchScreen.storyboard in Resources */,
 				1982A55C1C1F8C020042AE7A /* Assets.xcassets in Resources */,
+				F89D83071C28E945000A3E46 /* data.json in Resources */,
 				1982A55A1C1F8C020042AE7A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

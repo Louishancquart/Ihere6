@@ -29,6 +29,8 @@
     IBOutlet UILabel *selfView;
     IBOutlet UIView *beaconGrid;
     IBOutlet UILabel *beaconsFound;
+    
+    NSMutableDictionary* jsonData;
 }
 
 
