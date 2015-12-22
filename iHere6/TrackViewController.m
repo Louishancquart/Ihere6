@@ -18,7 +18,12 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self initRegion];
+    
+
+    if ([self deviceSettingsAreCorrect])
+    {
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
@@ -27,15 +32,15 @@
 
 - (void)initRegion {
     NSUUID *uuid1 = [[NSUUID alloc] initWithUUIDString:@":C1:90:8E:4B:16:E5"];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid1 identifier:@"BeaconA"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid1 identifier:@"Beacons"];
     
     
     
      NSUUID *uuid2 = [[NSUUID alloc] initWithUUIDString:@":C1:90:8E:4B:16:E5"];
-     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 identifier:@"BeaconB"];
+     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid2 identifier:@"Beacons"];
      
      NSUUID *uuid3 = [[NSUUID alloc] initWithUUIDString:@":C1:90:8E:4B:16:E5"];
-     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid3 identifier:@"BeaconC"];
+     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid3 identifier:@"Beacons"];
     
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 }
@@ -109,6 +114,46 @@
     self.rssi2Label.text = [NSString stringWithFormat:@"%li", (long)beacon.rssi];
     self.rssi3Label.text = [NSString stringWithFormat:@"%li", (long)beacon.rssi];
 }
+
+
+- (void) showErrorWithMessage: (NSString *) message
+{
+    [[[UIAlertView alloc] initWithTitle: message
+                                message: nil
+                               delegate: nil
+                      cancelButtonTitle: @"Ok"
+                      otherButtonTitles: nil] show];
+}
+
+
+- (BOOL) deviceSettingsAreCorrect
+{
+    NSString *errorMessage = @"";
+    
+    if (![CLLocationManager locationServicesEnabled]
+        || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied)
+    {
+        errorMessage = [errorMessage stringByAppendingString: @"Location services are turned off! Please turn them on!\n"];
+    }
+    
+    if (![CLLocationManager isRangingAvailable])
+    {
+        errorMessage = [errorMessage stringByAppendingString: @"Ranging not available!\n"];
+    }
+    
+    if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]])
+    {
+        errorMessage = [errorMessage stringByAppendingString: @"Beacons ranging not supported!\n"];
+    }
+    
+    if ([errorMessage length])
+    {
+        [self showErrorWithMessage: errorMessage];
+    }
+    
+    return [errorMessage length] == 0;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
