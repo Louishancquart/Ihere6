@@ -19,6 +19,7 @@
 		1982A5671C1F8C4E0042AE7A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1982A5661C1F8C4E0042AE7A /* CoreBluetooth.framework */; };
 		19EE8B8A1C28305A002CCA05 /* beaconCoordinates.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19EE8B891C28305A002CCA05 /* beaconCoordinates.plist */; };
 		19EE8B901C285A72002CCA05 /* PositioningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EE8B8F1C285A72002CCA05 /* PositioningViewController.m */; };
+		27EB246F406B19BF9E7E5CBA /* libPods-iHere6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B962A6945E2E90AFCE13AAFE /* libPods-iHere6.a */; };
 		F89D83071C28E945000A3E46 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = F89D83061C28E945000A3E46 /* data.json */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,9 @@
 		19EE8B891C28305A002CCA05 /* beaconCoordinates.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = beaconCoordinates.plist; sourceTree = "<group>"; };
 		19EE8B8E1C285A72002CCA05 /* PositioningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositioningViewController.h; sourceTree = "<group>"; };
 		19EE8B8F1C285A72002CCA05 /* PositioningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositioningViewController.m; sourceTree = "<group>"; };
+		5F2F43E890BBBA673FAB5041 /* Pods-iHere6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHere6.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHere6/Pods-iHere6.debug.xcconfig"; sourceTree = "<group>"; };
+		741778CB302EDC0E2F09E81F /* Pods-iHere6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHere6.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHere6/Pods-iHere6.release.xcconfig"; sourceTree = "<group>"; };
+		B962A6945E2E90AFCE13AAFE /* libPods-iHere6.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iHere6.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89D83061C28E945000A3E46 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +56,7 @@
 			files = (
 				19499B8A1C288EE500B82355 /* NotificationCenter.framework in Frameworks */,
 				1982A5671C1F8C4E0042AE7A /* CoreBluetooth.framework in Frameworks */,
+				27EB246F406B19BF9E7E5CBA /* libPods-iHere6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,8 @@
 				1982A5661C1F8C4E0042AE7A /* CoreBluetooth.framework */,
 				1982A54E1C1F8C020042AE7A /* iHere6 */,
 				1982A54D1C1F8C020042AE7A /* Products */,
+				54B263C3FD2A394DBE59BDC8 /* Pods */,
+				3825978FC6116B2C45E9D82E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +123,23 @@
 			name = Trilateration;
 			sourceTree = "<group>";
 		};
+		3825978FC6116B2C45E9D82E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B962A6945E2E90AFCE13AAFE /* libPods-iHere6.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54B263C3FD2A394DBE59BDC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F2F43E890BBBA673FAB5041 /* Pods-iHere6.debug.xcconfig */,
+				741778CB302EDC0E2F09E81F /* Pods-iHere6.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1982A5631C1F8C020042AE7A /* Build configuration list for PBXNativeTarget "iHere6" */;
 			buildPhases = (
+				4460211984D04F8FCA5EE90D /* Check Pods Manifest.lock */,
 				1982A5481C1F8C010042AE7A /* Sources */,
 				1982A5491C1F8C010042AE7A /* Frameworks */,
 				1982A54A1C1F8C010042AE7A /* Resources */,
+				32504648A9E426F04298849D /* Embed Pods Frameworks */,
+				F4EE0863F2A61494EF4254E4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,6 +214,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32504648A9E426F04298849D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iHere6/Pods-iHere6-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4460211984D04F8FCA5EE90D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F4EE0863F2A61494EF4254E4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iHere6/Pods-iHere6-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1982A5481C1F8C010042AE7A /* Sources */ = {
@@ -306,6 +381,7 @@
 		};
 		1982A5641C1F8C020042AE7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F2F43E890BBBA673FAB5041 /* Pods-iHere6.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = iHere6/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -317,6 +393,7 @@
 		};
 		1982A5651C1F8C020042AE7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 741778CB302EDC0E2F09E81F /* Pods-iHere6.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = iHere6/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

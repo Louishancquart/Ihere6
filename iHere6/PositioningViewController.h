@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Trilateration.h"
+#import <FMDB/FMDB.h>
+
 
 @interface PositioningViewController : UIViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -31,6 +33,9 @@
     IBOutlet UILabel *beaconsFound;
     
     NSMutableDictionary* jsonData;
+    
+    FMDatabase *db;
+
 }
 
 

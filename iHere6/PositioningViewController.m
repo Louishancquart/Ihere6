@@ -12,6 +12,8 @@
 
 @interface UIViewController ()
 
+
+
 @end
 
 @implementation PositioningViewController
@@ -37,6 +39,14 @@
     [selfView.layer setCornerRadius:10];
     
     [self plotBeaconsFromPlistToGrid];
+    
+    
+    db = [FMDatabase databaseWithPath:@"./data.db"];
+    
+    if (![db open]) { // test if db cannot oppen
+        NSLog(@" error connecteing DB");
+        return;
+    }
     
     
     }
@@ -188,7 +198,17 @@
 //                                                         error:&error];
 //    [jsonData setObject:@"firstobject" forKey:@"aKey"];
     
+    
+
+    
+    
+    [db close]; // closing DB /!
     return cell;
+    
+    
+    
+    
+    
 }
 
 
